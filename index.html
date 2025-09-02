@@ -57,7 +57,7 @@
         <!-- HEADER / HERO SECTION -->
         <header class="text-center mb-16 md:mb-24">
             <div class="mb-6">
-                <img src="https://placehold.co/128x128/E8E8E8/A3BFB8?text=MB" alt="Foto de Perfil de Marcel Bozutti" class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-lg">
+                <img src="marcel.png" alt="Foto de Perfil de Marcel Bozutti" class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-lg object-cover">
             </div>
             <h1 class="text-4xl md:text-6xl font-bold text-gray-800 tracking-tight">Marcel Bozutti</h1>
             <h2 class="mt-2 text-xl md:text-2xl font-medium text-[#A3BFB8]">BI Analyst | Data & Process Optimization</h2>
@@ -212,7 +212,7 @@
 
             // RENDER TIMELINE
             const timelineContainer = document.getElementById('timeline-container');
-            experienceData.forEach(job => {
+            experienceData.forEach(function(job) {
                 const item = document.createElement('div');
                 item.className = 'relative mb-8 pl-8 cursor-pointer group';
 
@@ -223,7 +223,7 @@
                             <h4 class="text-xl font-bold text-gray-800">${job.role}</h4>
                             <p class="text-md font-medium text-[#A3BFB8]">${job.company}</p>
                             <div class="details mt-4 text-gray-600 space-y-2 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                ${job.details.map(d => `<p class="flex items-start"><span class="text-[#A3BFB8] mr-2 mt-1">&#10003;</span><span>${d}</span></p>`).join('')}
+                                ${job.details.map(function(d) { return `<p class="flex items-start"><span class="text-[#A3BFB8] mr-2 mt-1">&#10003;</span><span>${d}</span></p>` }).join('')}
                             </div>
                         </div>
                     </div>
@@ -231,13 +231,13 @@
                 item.innerHTML = content;
                 timelineContainer.appendChild(item);
 
-                item.addEventListener('click', () => {
+                item.addEventListener('click', function() {
                     const detailsDiv = item.querySelector('.details');
                     const allDetails = document.querySelectorAll('.details');
                     
                     const isOpening = !detailsDiv.style.maxHeight || detailsDiv.style.maxHeight === '0px';
 
-                    allDetails.forEach(d => {
+                    allDetails.forEach(function(d) {
                         d.style.maxHeight = '0px';
                         d.closest('.group').querySelector('h4').classList.remove('text-[#8AA6A3]');
                     });
@@ -252,3 +252,4 @@
     </script>
 </body>
 </html>
+
