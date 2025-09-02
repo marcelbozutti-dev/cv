@@ -127,7 +127,7 @@
             <!-- PROFESSIONAL JOURNEY SECTION -->
             <section id="experience" class="mb-16 md:mb-24">
                 <h3 class="text-3xl font-bold text-center text-gray-800 mb-2">Jornada Profissional</h3>
-                <p class="text-center text-gray-600 mb-12">Uma linha do tempo interativa da minha carreira. Clique em cada cargo para ver os detalhes.</p>
+                <p class="text-center text-gray-600 mb-12">Uma linha do tempo da minha carreira, destacando as principais contribuições.</p>
                 <div id="timeline-container" class="relative max-w-3xl mx-auto pl-8">
                      <div class="timeline-line"></div>
                 </div>
@@ -176,9 +176,9 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', function() {
             // TIMELINE DATA
-            const experienceData = [
+            var experienceData = [
                 {
                     role: 'Analista de Gestão de Ativos',
                     company: 'Suzano',
@@ -211,18 +211,18 @@
             ];
 
             // RENDER TIMELINE
-            const timelineContainer = document.getElementById('timeline-container');
+            var timelineContainer = document.getElementById('timeline-container');
             experienceData.forEach(function(job) {
-                const item = document.createElement('div');
-                item.className = 'relative mb-8 pl-8 cursor-pointer group';
+                var item = document.createElement('div');
+                item.className = 'relative mb-8 pl-8';
 
-                const content = `
+                var content = `
                     <div class="timeline-item">
-                        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 transition-all duration-300 group-hover:shadow-xl">
+                        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
                             <p class="text-sm text-gray-500">${job.period}</p>
                             <h4 class="text-xl font-bold text-gray-800">${job.role}</h4>
                             <p class="text-md font-medium text-[#A3BFB8]">${job.company}</p>
-                            <div class="details mt-4 text-gray-600 space-y-2 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <div class="details mt-4 text-gray-600 space-y-2">
                                 ${job.details.map(function(d) { return `<p class="flex items-start"><span class="text-[#A3BFB8] mr-2 mt-1">&#10003;</span><span>${d}</span></p>` }).join('')}
                             </div>
                         </div>
@@ -230,23 +230,6 @@
                 `;
                 item.innerHTML = content;
                 timelineContainer.appendChild(item);
-
-                item.addEventListener('click', function() {
-                    const detailsDiv = item.querySelector('.details');
-                    const allDetails = document.querySelectorAll('.details');
-                    
-                    const isOpening = !detailsDiv.style.maxHeight || detailsDiv.style.maxHeight === '0px';
-
-                    allDetails.forEach(function(d) {
-                        d.style.maxHeight = '0px';
-                        d.closest('.group').querySelector('h4').classList.remove('text-[#8AA6A3]');
-                    });
-
-                    if (isOpening) {
-                        detailsDiv.style.maxHeight = detailsDiv.scrollHeight + 'px';
-                        item.querySelector('h4').classList.add('text-[#8AA6A3]');
-                    }
-                });
             });
         });
     </script>
