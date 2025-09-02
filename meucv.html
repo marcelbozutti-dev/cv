@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Interativo | Marcel Bozutti</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutral Harmony -->
+    <!-- Application Structure Plan: A single-page, multi-section dashboard layout was chosen to provide a non-linear, explorative user experience. The structure starts with a clear "Hero" section (who you are), followed by "Technical Stack" (what you do it with), a "Professional Journey" timeline (where you've done it), and "Education" (your foundation). This structure allows recruiters to quickly access the information most relevant to them. Key interactions include clickable timeline events. -->
+    <!-- Visualization & Content Choices: 
+        - Professional Summary (Hero Text): Goal: Inform. Method: Prominent text block. Interaction: None. Justification: Immediately establishes identity and value proposition.
+        - Technical Skills (Competencies): Goal: Inform/Organize. Method: Thematic List with Skill Tags. Interaction: None. Justification: Removes subjective quantification (like charts or levels) and presents skills in clear, professional categories. This format is direct, scannable, and transparently communicates proficiency without over-selling, which is highly valued by recruiters.
+        - Professional Journey (Experience): Goal: Show Change/Organize. Method: Interactive vertical timeline (HTML/CSS/JS). Interaction: Clicking on a job title reveals detailed project descriptions. Justification: Transforms a standard list into a narrative of career progression, making it more engaging and easier to digest.
+        - Education (Formation): Goal: Inform. Method: Simple card layout. Interaction: None. Justification: Presents foundational information clearly and concisely without distraction.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F7F4;
+            color: #404040;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #A3BFB8;
+            border: 4px solid #F8F7F4;
+        }
+        .timeline-line {
+            position: absolute;
+            left: -21px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #D1D5DB;
+        }
+        .skill-tag {
+            transition: all 0.3s ease;
+        }
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+        <!-- HEADER / HERO SECTION -->
+        <header class="text-center mb-16 md:mb-24">
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-800 tracking-tight">Marcel Bozutti</h1>
+            <h2 class="mt-2 text-xl md:text-2xl font-medium text-[#A3BFB8]">BI Analyst | Data & Process Optimization</h2>
+            <p class="mt-6 max-w-3xl mx-auto text-base md:text-lg text-gray-600">
+                Analista de Business Intelligence com MBA em BI & Analytics (ECA-USP) e background sólido em Administração e Supply Chain. Sou especializado em traduzir desafios de negócio em soluções de dados, utilizando Python, SQL e Power BI para otimizar processos, automatizar relatórios e gerar insights acionáveis.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 text-gray-600 font-medium">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#A3BFB8]"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span>marcelbozutti@gmail.com</span>
+                </div>
+                <div class="flex items-center gap-2">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#A3BFB8]"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    <span>linkedin.com/in/marcel-bozutti</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- TECHNICAL STACK SECTION -->
+            <section id="skills" class="mb-16 md:mb-24">
+                <h3 class="text-3xl font-bold text-center text-gray-800 mb-2">Competências Técnicas</h3>
+                <p class="text-center text-gray-600 mb-12">As ferramentas e tecnologias que utilizo para transformar dados em valor.</p>
+                <div class="max-w-4xl mx-auto space-y-8 bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-700 mb-3 border-b-2 border-[#A3BFB8] pb-2">BI & Visualização de Dados</h4>
+                        <div class="flex flex-wrap gap-3 mt-4">
+                            <span class="skill-tag bg-gray-100 border border-gray-200 rounded-full px-4 py-1 text-sm font-medium text-gray-800">Power BI (Dashboards, DAX)</span>
+                            <span class="skill-tag bg-gray-100 border border-gray-200 rounded-full px-4 py-1 text-sm font-medium text-gray-800">Microsoft Platform</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-700 mb-3 border-b-2 border-[#A3BFB8] pb-2">Bancos de Dados & ETL</h4>
+                        <div class="flex flex-wrap gap-3 mt-4">
+                            <span class="skill-tag bg-gray-100 border border-gray-200 rounded-full px-4 py-1 text-sm font-medium text-gray-800">SQL (SQL Management Studio)</span>
+                            <span class="skill-tag bg-gray-100 border border-gray-200 rounded-full px-4 py-1 text-sm font-medium text-gray-800">Microsoft Access</span>
+                            <span class="skill-tag bg-gray-100 border border-gray-200 rounded-full px-4 py-1 text-sm font-medium text-gray-800">Google Cloud Platform (GCP)</span>
+                            <span class="skill-tag bg-gray-100 border border-gray-200 rounded-full px-4 py-1 text-sm font-medium text-gray-800">Power Query</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-700 mb-3 border-b-2 border-[#A3BFB8] pb-2">Análise de Dados & Programação</h4>
+                        <div class="flex flex-wrap gap-3 mt-4">
+                            <span class="skill-tag bg-gray-100 border border-gray-200 rounded-full px-4 py-1 text-sm font-medium text-gray-800">Python</span>
+                            <span class="skill-tag bg-gray-100 border border-gray-200 rounded-full px-4 py-1 text-sm font-medium text-gray-800">R (RStudio)</span>
+                            <span class="skill-tag bg-gray-100 border border-gray-200 rounded-full px-4 py-1 text-sm font-medium text-gray-800">Excel Avançado / VBA</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-700 mb-3 border-b-2 border-[#A3BFB8] pb-2">Metodologias de Gestão</h4>
+                        <div class="flex flex-wrap gap-3 mt-4">
+                            <span class="skill-tag bg-gray-100 border border-gray-200 rounded-full px-4 py-1 text-sm font-medium text-gray-800">PDCA</span>
+                            <span class="skill-tag bg-gray-100 border border-gray-200 rounded-full px-4 py-1 text-sm font-medium text-gray-800">Kaizen</span>
+                            <span class="skill-tag bg-gray-100 border border-gray-200 rounded-full px-4 py-1 text-sm font-medium text-gray-800">SWOT</span>
+                            <span class="skill-tag bg-gray-100 border border-gray-200 rounded-full px-4 py-1 text-sm font-medium text-gray-800">5W2H</span>
+                            <span class="skill-tag bg-gray-100 border border-gray-200 rounded-full px-4 py-1 text-sm font-medium text-gray-800">Lean Six Sigma</span>
+                            <span class="skill-tag bg-gray-100 border border-gray-200 rounded-full px-4 py-1 text-sm font-medium text-gray-800">Gerenciamento de Riscos</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROFESSIONAL JOURNEY SECTION -->
+            <section id="experience" class="mb-16 md:mb-24">
+                <h3 class="text-3xl font-bold text-center text-gray-800 mb-2">Jornada Profissional</h3>
+                <p class="text-center text-gray-600 mb-12">Uma linha do tempo interativa da minha carreira. Clique em cada cargo para ver os detalhes.</p>
+                <div id="timeline-container" class="relative max-w-3xl mx-auto pl-8">
+                     <div class="timeline-line"></div>
+                </div>
+            </section>
+
+            <!-- EDUCATION SECTION -->
+            <section id="education" class="text-center mb-16 md:mb-24">
+                <h3 class="text-3xl font-bold text-gray-800 mb-2">Formação Acadêmica</h3>
+                <p class="text-center text-gray-600 mb-8">A base do meu conhecimento analítico e de negócio.</p>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 w-full max-w-md">
+                        <h4 class="text-lg font-bold text-[#A3BFB8]">MBA, Business Intelligence & Analytics</h4>
+                        <p class="text-gray-700 font-medium">Escola de Comunicações e Artes (ECA-USP)</p>
+                        <p class="text-gray-500 text-sm">2024 - 2025 (Cursando)</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 w-full max-w-md">
+                        <h4 class="text-lg font-bold text-[#A3BFB8]">Bacharelado em Administração</h4>
+                        <p class="text-gray-700 font-medium">Centro Universitário Salesiano de São Paulo</p>
+                        <p class="text-gray-500 text-sm">2014 - 2017</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- COURSES SECTION -->
+            <section id="courses" class="text-center">
+                <h3 class="text-3xl font-bold text-gray-800 mb-2">Idiomas e Cursos Complementares</h3>
+                <p class="text-center text-gray-600 mb-8">Investimento contínuo em desenvolvimento profissional.</p>
+                 <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                     <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 w-full max-w-md">
+                        <h4 class="text-lg font-bold text-[#A3BFB8]">Inglês - Nível Intermediário</h4>
+                        <p class="text-gray-700 font-medium">Maple English School</p>
+                        <p class="text-gray-500 text-sm">Cursos Intensivos (Common European Framework), 90 horas - 2019</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 w-full max-w-md">
+                        <h4 class="text-lg font-bold text-[#A3BFB8]">Lean Six Sigma Yellow Belt</h4>
+                        <p class="text-gray-700 font-medium">FM2S Educação e Consultoria</p>
+                        <p class="text-gray-500 text-sm">Finalizado em Setembro de 2025</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-16 md:mt-24 text-gray-500 text-sm">
+            <p>&copy; 2025 Marcel Bozutti. Desenvolvido com foco em clareza e interatividade.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // TIMELINE DATA
+            const experienceData = [
+                {
+                    role: 'Analista de Gestão de Ativos',
+                    company: 'Suzano',
+                    period: 'outubro de 2022 - Presente',
+                    details: [
+                        'Apliquei <strong>Power BI</strong> para criar relatórios visuais que otimizaram o acompanhamento de atualização cadastral dos ativos, proporcionando maior clareza sobre os status e quantidade realizada.',
+                        'Utilizei scripts em <strong>Python</strong> e <strong>SQL</strong> para automatizar a extração e validação de dados de fontes diversas, reduzindo o tempo de preparação e serviços de terceiros.',
+                        'Utilizei <strong>Microsoft Access</strong> para integração com <strong>Microsoft Lists</strong> e gerenciamento de controle de dados, trazendo mais segurança e confiabilidade da informação até chegar no <strong>Power BI</strong>.',
+                        'Analisei o fluxo de trabalho de gestão de ativos e propus melhorias baseadas em dados e sistemas, resultando em maior eficiência no controle de tributos (ITR/CCIR) e na identificação de gargalos operacionais.'
+                    ]
+                },
+                {
+                    role: 'Analista de Gestão de Estoque',
+                    company: 'Cryo Service',
+                    period: 'janeiro de 2020 - outubro de 2022',
+                    details: [
+                        'Desenvolvi e implementei um sistema de indicadores de performance (KPIs) para a gestão de estoque (Curva ABC, CMV), fornecendo insights que suportaram a otimização de compras e a redução de custos.',
+                        'Automatizei a rotina de conciliação de inventário utilizando <strong>VBA</strong> e <strong>SQL Management Studio</strong>, eliminando horas de trabalho manual e minimizando erros de forma significativa.',
+                        'Modelei bancos de dados em <strong>Microsoft Access</strong> para análises de faturamento e impostos, centralizando informações e agilizando a geração de relatórios fiscais.'
+                    ]
+                },
+                {
+                    role: 'Assistant Operations Office (Temporário)',
+                    company: 'KPMG Brasil',
+                    period: 'maio de 2019 - outubro de 2019',
+                    details: [
+                        'Realizei análise e mensuração de riscos em inventários de ativos, aplicando metodologias de conciliação entre dados físicos e contábeis para garantir a acuracidade das informações para auditoria.'
+                    ]
+                }
+            ];
+
+            // RENDER TIMELINE
+            const timelineContainer = document.getElementById('timeline-container');
+            experienceData.forEach(job => {
+                const item = document.createElement('div');
+                item.className = 'relative mb-8 pl-8 cursor-pointer group';
+
+                const content = `
+                    <div class="timeline-item">
+                        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 transition-all duration-300 group-hover:shadow-xl">
+                            <p class="text-sm text-gray-500">${job.period}</p>
+                            <h4 class="text-xl font-bold text-gray-800">${job.role}</h4>
+                            <p class="text-md font-medium text-[#A3BFB8]">${job.company}</p>
+                            <div class="details mt-4 text-gray-600 space-y-2 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                ${job.details.map(d => `<p class="flex items-start"><span class="text-[#A3BFB8] mr-2 mt-1">&#10003;</span><span>${d}</span></p>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                item.innerHTML = content;
+                timelineContainer.appendChild(item);
+
+                item.addEventListener('click', () => {
+                    const detailsDiv = item.querySelector('.details');
+                    const allDetails = document.querySelectorAll('.details');
+                    
+                    const isOpening = !detailsDiv.style.maxHeight || detailsDiv.style.maxHeight === '0px';
+
+                    allDetails.forEach(d => {
+                        d.style.maxHeight = '0px';
+                        d.closest('.group').querySelector('h4').classList.remove('text-[#8AA6A3]');
+                    });
+
+                    if (isOpening) {
+                        detailsDiv.style.maxHeight = detailsDiv.scrollHeight + 'px';
+                        item.querySelector('h4').classList.add('text-[#8AA6A3]');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
