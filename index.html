@@ -50,6 +50,42 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
         }
+
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            header, section {
+                page-break-inside: avoid;
+            }
+            #experience, #education, #courses {
+                 page-break-before: always;
+            }
+            .timeline-item > div, .bg-white.p-6.rounded-lg {
+                page-break-inside: avoid;
+            }
+            footer {
+                display: none;
+            }
+            .shadow-lg, .shadow-sm {
+                box-shadow: none !important;
+            }
+             h1, h2, h3, h4, span, p, div {
+                color: #000 !important;
+            }
+            .text-[#A3BFB8] {
+                color: #5d7a73 !important;
+            }
+            .bg-gray-100 {
+                background-color: #f3f4f6 !important;
+            }
+            .timeline-item::before, .border-b-2.border-\[\#A3BFB8\] {
+                 -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
