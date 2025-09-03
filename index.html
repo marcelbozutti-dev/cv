@@ -54,16 +54,12 @@
         @media print {
             body {
                 background-color: #ffffff !important;
-                font-size: 10pt;
+                font-size: 9.5pt;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
             
-            .no-print {
-                display: none !important;
-            }
-
-            .timeline-line, .timeline-item::before, footer {
+            .no-print, .timeline-line, .timeline-item::before, footer {
                 display: none !important;
             }
 
@@ -78,31 +74,46 @@
             }
             
             header {
-                text-align: center;
-                padding-bottom: 20px !important;
-                 page-break-after: avoid;
+                display: flex !important;
+                align-items: center;
+                text-align: left;
+                padding-bottom: 15px !important;
+                border-bottom: 1px solid #ddd;
             }
             
+            header .mb-6 {
+               margin-right: 20px !important;
+               flex-shrink: 0;
+            }
+
             header img {
                 width: 100px !important;
                 height: 100px !important;
                 border: none !important;
             }
 
-            section {
-                margin-top: 25px !important;
+            h1 { font-size: 20pt !important; margin-bottom: 0 !important; line-height: 1.1; }
+            h2 { font-size: 13pt !important; margin-top: 2px !important; }
+            h3 { 
+                font-size: 14pt !important; 
+                font-weight: bold; 
+                border-bottom: 1px solid #ddd; 
+                padding-bottom: 4px; 
+                margin-top: 20px;
+                margin-bottom: 10px;
             }
+            h4 { font-size: 11pt !important; }
+            header p { text-align: left; margin-top: 5px !important; max-width: none !important; }
+            header .mt-8 { justify-content: flex-start !important; margin-top: 10px !important; flex-wrap: wrap; }
             
-            h1 { font-size: 22pt !important; }
-            h2 { font-size: 14pt !important; }
-            h3 { font-size: 16pt !important; font-weight: bold; border-bottom: 1px solid #ddd; padding-bottom: 6px; margin-top: 25px; }
-            h4 { font-size: 12pt !important; }
-
-            #skills, #experience, #education, #courses {
+            #skills, #education, #courses {
+                 page-break-inside: avoid;
+            }
+            #experience {
                  page-break-before: always;
             }
             
-            .timeline-item > div, .bg-white, #skills > div {
+            .bg-white {
                 page-break-inside: avoid;
             }
             
@@ -122,6 +133,11 @@
             #timeline-container {
                 padding-left: 0 !important;
             }
+
+            section {
+                margin-top: 15px !important;
+                margin-bottom: 15px !important;
+            }
         }
     </style>
 </head>
@@ -132,30 +148,32 @@
             <div class="mb-6">
                 <img src="marcel.png" alt="Foto de Perfil de Marcel Bozutti" class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-lg object-cover">
             </div>
-            <h1 class="text-4xl md:text-6xl font-bold text-gray-800 tracking-tight">Marcel Bozutti</h1>
-            <h2 class="mt-2 text-xl md:text-2xl font-medium text-[#A3BFB8]">BI Analyst | Data & Process Optimization</h2>
-            <p class="mt-6 max-w-3xl mx-auto text-base md:text-lg text-gray-600">
-                Analista de Business Intelligence com MBA em BI & Analytics (ECA-USP) e background sólido em Administração e Supply Chain. Sou especializado em traduzir desafios de negócio em soluções de dados, utilizando Python, SQL e Power BI para otimizar processos, automatizar relatórios e gerar insights acionáveis.
-            </p>
-            <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 text-gray-600 font-medium">
-                <div class="flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#A3BFB8]"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    <span>marcelbozutti@gmail.com</span>
+            <div class="header-info">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-800 tracking-tight">Marcel Bozutti</h1>
+                <h2 class="mt-2 text-xl md:text-2xl font-medium text-[#A3BFB8]">BI Analyst | Data & Process Optimization</h2>
+                <p class="mt-6 max-w-3xl mx-auto text-base md:text-lg text-gray-600">
+                    Analista de Business Intelligence com MBA em BI & Analytics (ECA-USP) e background sólido em Administração e Supply Chain. Sou especializado em traduzir desafios de negócio em soluções de dados, utilizando Python, SQL e Power BI para otimizar processos, automatizar relatórios e gerar insights acionáveis.
+                </p>
+                <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 text-gray-600 font-medium">
+                    <div class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#A3BFB8]"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <span>marcelbozutti@gmail.com</span>
+                    </div>
+                     <div class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#A3BFB8]"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <span>19 99301 6825</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#A3BFB8]"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        <span>linkedin.com/in/marcel-bozutti</span>
+                    </div>
                 </div>
-                 <div class="flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#A3BFB8]"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                    <span>19 99301 6825</span>
+                <div class="mt-8 no-print">
+                     <button onclick="window.print()" class="bg-[#A3BFB8] text-white font-bold py-2 px-6 rounded-full inline-flex items-center gap-2 hover:bg-[#8AA6A3] transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        <span>Baixar PDF</span>
+                    </button>
                 </div>
-                <div class="flex items-center gap-2">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#A3BFB8]"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                    <span>linkedin.com/in/marcel-bozutti</span>
-                </div>
-            </div>
-            <div class="mt-8 no-print">
-                 <button onclick="window.print()" class="bg-[#A3BFB8] text-white font-bold py-2 px-6 rounded-full inline-flex items-center gap-2 hover:bg-[#8AA6A3] transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                    <span>Baixar PDF</span>
-                </button>
             </div>
         </header>
 
@@ -163,7 +181,7 @@
             <!-- TECHNICAL STACK SECTION -->
             <section id="skills" class="mb-16 md:mb-24">
                 <h3 class="text-3xl font-bold text-center text-gray-800 mb-2">Competências Técnicas</h3>
-                <p class="text-center text-gray-600 mb-12">As ferramentas e tecnologias que utilizo para transformar dados em valor.</p>
+                <p class="text-center text-gray-600 mb-12 no-print">As ferramentas e tecnologias que utilizo para transformar dados em valor.</p>
                 <div class="max-w-4xl mx-auto space-y-8 bg-white p-8 rounded-lg shadow-sm border border-gray-200">
                     <div>
                         <h4 class="font-bold text-lg text-gray-700 mb-3 border-b-2 border-[#A3BFB8] pb-2">BI & Visualização de Dados</h4>
@@ -206,7 +224,7 @@
             <!-- PROFESSIONAL JOURNEY SECTION -->
             <section id="experience" class="mb-16 md:mb-24">
                 <h3 class="text-3xl font-bold text-center text-gray-800 mb-2">Jornada Profissional</h3>
-                <p class="text-center text-gray-600 mb-12">Uma linha do tempo da minha carreira, destacando as principais contribuições.</p>
+                <p class="text-center text-gray-600 mb-12 no-print">Uma linha do tempo da minha carreira, destacando as principais contribuições.</p>
                 <div id="timeline-container" class="relative max-w-3xl mx-auto pl-8">
                      <div class="timeline-line"></div>
                 </div>
@@ -215,7 +233,7 @@
             <!-- EDUCATION SECTION -->
             <section id="education" class="text-center mb-16 md:mb-24">
                 <h3 class="text-3xl font-bold text-gray-800 mb-2">Formação Acadêmica</h3>
-                <p class="text-center text-gray-600 mb-8">A base do meu conhecimento analítico e de negócio.</p>
+                <p class="text-center text-gray-600 mb-8 no-print">A base do meu conhecimento analítico e de negócio.</p>
                 <div class="flex flex-col md:flex-row justify-center items-center gap-8">
                     <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 w-full max-w-md">
                         <h4 class="text-lg font-bold text-[#A3BFB8]">MBA, Business Intelligence & Analytics</h4>
@@ -233,7 +251,7 @@
             <!-- COURSES SECTION -->
             <section id="courses" class="text-center">
                 <h3 class="text-3xl font-bold text-gray-800 mb-2">Idiomas e Cursos Complementares</h3>
-                <p class="text-center text-gray-600 mb-8">Investimento contínuo em desenvolvimento profissional.</p>
+                <p class="text-center text-gray-600 mb-8 no-print">Investimento contínuo em desenvolvimento profissional.</p>
                  <div class="flex flex-col md:flex-row justify-center items-center gap-8">
                      <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 w-full max-w-md">
                         <h4 class="text-lg font-bold text-[#A3BFB8]">Inglês - Nível Intermediário</h4>
