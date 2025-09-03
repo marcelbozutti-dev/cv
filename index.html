@@ -54,36 +54,69 @@
         @media print {
             body {
                 background-color: #ffffff !important;
+                font-size: 10pt;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
-            header, section {
-                page-break-inside: avoid;
+
+            .timeline-line, .timeline-item::before, footer {
+                display: none !important;
             }
-            #experience, #education, #courses {
+
+            .container, main, section, header, div {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                border: none !important;
+            }
+            
+            header {
+                text-align: center;
+                padding-bottom: 20px !important;
+                 page-break-after: avoid;
+            }
+            
+            header img {
+                width: 100px !important;
+                height: 100px !important;
+                border: none !important;
+            }
+
+            section {
+                margin-top: 25px !important;
+            }
+            
+            h1 { font-size: 22pt !important; }
+            h2 { font-size: 14pt !important; }
+            h3 { font-size: 16pt !important; font-weight: bold; border-bottom: 1px solid #ddd; padding-bottom: 6px; margin-top: 25px; }
+            h4 { font-size: 12pt !important; }
+
+            #skills, #experience, #education, #courses {
                  page-break-before: always;
             }
-            .timeline-item > div, .bg-white.p-6.rounded-lg {
+            
+            .timeline-item > div, .bg-white, #skills > div {
                 page-break-inside: avoid;
             }
-            footer {
-                display: none;
-            }
-            .shadow-lg, .shadow-sm {
-                box-shadow: none !important;
-            }
-             h1, h2, h3, h4, span, p, div {
-                color: #000 !important;
-            }
+            
             .text-[#A3BFB8] {
                 color: #5d7a73 !important;
             }
-            .bg-gray-100 {
-                background-color: #f3f4f6 !important;
+            
+            .skill-tag {
+                display: inline-block;
+                padding: 2px 8px;
+                margin: 2px;
+                border: 1px solid #ccc !important;
+                background-color: #f9f9f9 !important;
+                border-radius: 4px;
             }
-            .timeline-item::before, .border-b-2.border-\[\#A3BFB8\] {
-                 -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+
+            #timeline-container {
+                padding-left: 0 !important;
             }
         }
     </style>
