@@ -13,7 +13,7 @@
     <!-- Visualization & Content Choices: 
         - All content is presented using structured HTML and themed with a professional color palette. Interactive elements are removed in favor of a clean, direct presentation that works seamlessly for PDF export.
         - Skills are grouped by theme for clarity. This is the most professional and transparent way to present technical competencies.
-        - The "Download PDF" button uses window.print() combined with print-specific CSS to reformat the page into a perfect 2-page A4 document.
+        - The "Download PDF" button uses window.print() combined with print-specific CSS to reformat the page into a perfect 1-page A4 document.
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
@@ -25,8 +25,13 @@
              background-color: white;
         }
         @media print {
+            @page {
+                size: A4;
+                margin: 1.5cm;
+            }
             body {
                 background-color: #ffffff !important;
+                font-size: 9pt;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
@@ -39,19 +44,41 @@
                 max-width: 100% !important;
                 border: none !important;
             }
-            .print-break-before {
-                page-break-before: always;
+            .grid {
+                display: grid !important;
             }
-            .print-break-inside-avoid {
-                page-break-inside: avoid;
+             .md\:grid-cols-3 {
+                grid-template-columns: 33.333333% 66.666667%;
             }
-             .print-h3 {
-                padding-top: 1rem;
-             }
-             .print-sidebar {
-                background-color: #f4f6f8 !important;
+            .md\:col-span-1 {
+                grid-column: span 1 / span 1;
+            }
+            .md\:col-span-2 {
+                grid-column: span 2 / span 2;
+            }
+            .print-sidebar {
+                background-color: #f9fafb !important;
+                padding: 1.5rem !important;
                 border-right: 1px solid #e5e7eb !important;
-             }
+            }
+            main.p-8 {
+                padding: 1.5rem !important;
+            }
+            aside.p-8 {
+                padding: 1.5rem !important;
+            }
+            h1 { font-size: 22pt !important; line-height: 1.1; }
+            h2 { font-size: 14pt !important; margin-top: 2px; }
+            h3 { font-size: 13pt !important; padding-bottom: 2px; margin-top: 1rem; margin-bottom: 0.5rem; }
+            h4 { font-size: 10pt !important; }
+            section, .mt-8 { margin-top: 1rem !important; }
+            .mt-6 { margin-top: 1rem !important; }
+            .mt-4 { margin-top: 0.5rem !important; }
+            .space-y-3 > :not([hidden]) ~ :not([hidden]), .space-y-4 > :not([hidden]) ~ :not([hidden]), .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+                margin-top: 0.5rem !important;
+            }
+            p, li { line-height: 1.35; }
+            ul { margin-top: 0.25rem !important; }
         }
     </style>
 </head>
@@ -94,7 +121,7 @@
                             </div>
                         </div>
 
-                        <div class="mt-8 w-full print-break-inside-avoid">
+                        <div class="mt-8 w-full">
                             <h3 class="text-xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2">Competências</h3>
                             <div class="mt-4 space-y-4 text-sm">
                                 <div>
@@ -116,7 +143,7 @@
                             </div>
                         </div>
                         
-                        <div class="mt-8 w-full print-break-inside-avoid">
+                        <div class="mt-8 w-full">
                             <h3 class="text-xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2">Formação</h3>
                             <div class="mt-4 space-y-4 text-sm">
                                 <div>
@@ -130,7 +157,7 @@
                             </div>
                         </div>
 
-                        <div class="mt-8 w-full print-break-inside-avoid">
+                        <div class="mt-8 w-full">
                             <h3 class="text-xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2">Cursos e Idiomas</h3>
                             <div class="mt-4 space-y-4 text-sm">
                                 <div>
@@ -151,18 +178,18 @@
                     <h1 class="text-4xl md:text-5xl font-bold text-gray-800">Marcel Bozutti</h1>
                     <h2 class="mt-1 text-xl md:text-2xl font-semibold text-gray-500">Business Intelligence & Analyst | Data & Process Optimization</h2>
                     
-                    <section class="mt-8 print-break-inside-avoid">
-                        <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2 print-h3">Resumo Profissional</h3>
+                    <section class="mt-8">
+                        <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2">Resumo Profissional</h3>
                         <p class="mt-4 text-base">
                              Analista de Business Intelligence com MBA em BI & Analytics (ECA-USP) e background sólido em Administração e Supply Chain. Sou especializado em traduzir desafios de negócio em soluções, desde a estruturação de bancos de dados e o tratamento de dados brutos utilizando Python, SQL e Power BI para otimizar processos, automatizar relatórios e gerar insights acionáveis.
                         </p>
                     </section>
 
                     <section class="mt-8">
-                        <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2 print-h3 print-break-before">Jornada Profissional</h3>
+                        <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2">Jornada Profissional</h3>
                         <div class="mt-4 space-y-6">
                             
-                            <div class="print-break-inside-avoid">
+                            <div>
                                 <div class="flex justify-between items-baseline">
                                     <h4 class="text-lg font-semibold">Analista de Gestão de Ativos</h4>
                                     <p class="text-sm font-medium text-gray-500">2022 - 2025</p>
@@ -176,7 +203,7 @@
                                 </ul>
                             </div>
                             
-                            <div class="print-break-inside-avoid">
+                            <div>
                                 <div class="flex justify-between items-baseline">
                                     <h4 class="text-lg font-semibold">Analista de Gestão de Estoque</h4>
                                     <p class="text-sm font-medium text-gray-500">2020 - 2022</p>
@@ -189,7 +216,7 @@
                                 </ul>
                             </div>
                             
-                            <div class="print-break-inside-avoid">
+                            <div>
                                 <div class="flex justify-between items-baseline">
                                     <h4 class="text-lg font-semibold">Assistant Operations Office</h4>
                                     <p class="text-sm font-medium text-gray-500">2019</p>
