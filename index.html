@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currículo | Marcel Bozutti</title>
+    <title>CV | Marcel Bozutti</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,11 +27,10 @@
         @media print {
             @page {
                 size: A4;
-                margin: 1.5cm;
+                margin: 0;
             }
             body {
                 background-color: #ffffff !important;
-                font-size: 9pt;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
@@ -40,55 +39,51 @@
             }
             .print-container {
                 box-shadow: none !important;
-                margin: 0 !important;
-                max-width: 100% !important;
                 border: none !important;
+                width: 210mm;
+                height: 297mm;
+                overflow: hidden;
             }
-            .grid {
-                display: grid !important;
-            }
-             .md\:grid-cols-3 {
-                grid-template-columns: 33.333333% 66.666667%;
-            }
-            .md\:col-span-1 {
-                grid-column: span 1 / span 1;
-            }
-            .md\:col-span-2 {
-                grid-column: span 2 / span 2;
-            }
+            .grid { display: grid !important; }
+            .md\:grid-cols-3 { grid-template-columns: 35% 65%; }
+            .md\:col-span-1 { grid-column: span 1 / span 1; }
+            .md\:col-span-2 { grid-column: span 2 / span 2; }
+            
             .print-sidebar {
                 background-color: #f9fafb !important;
                 padding: 1.5rem !important;
                 border-right: 1px solid #e5e7eb !important;
             }
-            main.p-8 {
+            main.p-8, aside.p-8 {
                 padding: 1.5rem !important;
             }
-            aside.p-8 {
-                padding: 1.5rem !important;
-            }
-            h1 { font-size: 22pt !important; line-height: 1.1; }
-            h2 { font-size: 14pt !important; margin-top: 2px; }
-            h3 { font-size: 13pt !important; padding-bottom: 2px; margin-top: 1rem; margin-bottom: 0.5rem; }
-            h4 { font-size: 10pt !important; }
-            section, .mt-8 { margin-top: 1rem !important; }
-            .mt-6 { margin-top: 1rem !important; }
-            .mt-4 { margin-top: 0.5rem !important; }
-            .space-y-3 > :not([hidden]) ~ :not([hidden]), .space-y-4 > :not([hidden]) ~ :not([hidden]), .space-y-6 > :not([hidden]) ~ :not([hidden]) {
-                margin-top: 0.5rem !important;
-            }
-            p, li { line-height: 1.35; }
-            ul { margin-top: 0.25rem !important; }
+             h1 { font-size: 20pt !important; line-height: 1.1; }
+            h2 { font-size: 12pt !important; margin-top: 1px; }
+            h3 { font-size: 11pt !important; padding-bottom: 2px; margin-top: 0.75rem; margin-bottom: 0.4rem; }
+            h4 { font-size: 9.5pt !important; }
+            p, li, span { font-size: 8.5pt !important; line-height: 1.4; }
+            
+            section, .mt-8 { margin-top: 0.75rem !important; }
+            .mt-6 { margin-top: 0.75rem !important; }
+            .mt-4 { margin-top: 0.4rem !important; }
+            .mt-2 { margin-top: 0.2rem !important; }
+            .space-y-1 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.1rem !important; }
+            .space-y-3 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.4rem !important; }
+            .space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.5rem !important; }
+            .space-y-6 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.75rem !important; }
+            
+            aside img { width: 90px !important; height: 90px !important; }
+            aside .gap-3 { gap: 0.5rem !important; }
         }
     </style>
 </head>
-<body class="antialiased text-gray-700">
+<body class="antialiased text-gray-800">
     <div class="relative min-h-screen md:flex justify-center items-center p-4">
         
         <div class="absolute top-4 right-4 no-print z-10">
             <button onclick="window.print()" class="bg-white text-gray-600 border border-gray-300 font-medium py-2 px-4 rounded-full inline-flex items-center gap-2 hover:bg-gray-100 transition-colors text-sm shadow-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                <span>Baixar PDF</span>
+                <span>Baixar CV em PDF</span>
             </button>
         </div>
 
@@ -102,10 +97,6 @@
                         <div class="mt-6 w-full">
                             <h3 class="text-xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2">Contato</h3>
                             <div class="mt-4 space-y-3 text-sm">
-                                <div class="flex items-center justify-center md:justify-start gap-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-500"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                                    <span>33 anos</span>
-                                </div>
                                 <div class="flex items-center justify-center md:justify-start gap-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-500"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                                     <span>marcelbozutti@gmail.com</span>
@@ -125,16 +116,16 @@
                             <h3 class="text-xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2">Competências</h3>
                             <div class="mt-4 space-y-4 text-sm">
                                 <div>
-                                    <h4 class="font-semibold text-gray-600 mb-2">BI & Visualização</h4>
+                                    <h4 class="font-semibold text-gray-600 mb-2">BI & Storytelling</h4>
                                     <p>Power BI (DAX), Storytelling com Dados, Microsoft Platform</p>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-gray-600 mb-2">Bancos de Dados & ETL</h4>
-                                    <p>SQL, MS Access, GCP, Power Query</p>
+                                    <p>SQL, MS Access, GCP (BigQuery), Power Query</p>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-gray-600 mb-2">Análise & Programação</h4>
-                                    <p>Python, R (RStudio), Excel/VBA</p>
+                                    <h4 class="font-semibold text-gray-600 mb-2">Análise & Automação</h4>
+                                    <p>Python, RPA, Excel/VBA</p>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-gray-600 mb-2">Metodologias</h4>
@@ -176,7 +167,7 @@
                 <!-- Right Main Content -->
                 <main class="md:col-span-2 p-8">
                     <h1 class="text-4xl md:text-5xl font-bold text-gray-800">Marcel Bozutti</h1>
-                    <h2 class="mt-1 text-xl md:text-2xl font-semibold text-gray-500">Business Intelligence & Analyst | Data & Process Optimization</h2>
+                    <h2 class="mt-1 text-xl md:text-2xl font-semibold text-gray-500">BI & Analytics Specialist | Data-Driven Process Optimization</h2>
                     
                     <section class="mt-8">
                         <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2">Resumo Profissional</h3>
@@ -186,39 +177,37 @@
                     </section>
 
                     <section class="mt-8">
-                        <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2">Jornada Profissional</h3>
+                        <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2">Experiência Profissional</h3>
                         <div class="mt-4 space-y-6">
                             
                             <div>
                                 <div class="flex justify-between items-baseline">
-                                    <h4 class="text-lg font-semibold">Analista de Gestão de Ativos</h4>
-                                    <p class="text-sm font-medium text-gray-500">2022 - 2025</p>
+                                    <h4 class="text-lg font-semibold text-gray-900">Analista de Gestão de Ativos</h4>
+                                    <p class="text-sm font-medium text-gray-500">2022 - Atual</p>
                                 </div>
                                 <p class="text-md font-medium text-gray-600">Suzano</p>
                                 <ul class="mt-2 list-disc list-inside text-sm space-y-1">
-                                    <li>Apliquei <strong>Power BI</strong> para criar relatórios visuais que otimizaram o acompanhamento de atualização cadastral dos ativos.</li>
-                                    <li>Utilizei <strong>Python</strong> e <strong>SQL</strong> para automatizar a extração e validação de dados, reduzindo o tempo de preparação.</li>
-                                    <li>Utilizei <strong>MS Access</strong> para integração com <strong>MS Lists</strong>, garantindo a segurança e confiabilidade da informação.</li>
-                                    <li>Analisei o fluxo de trabalho e propus melhorias baseadas em dados, resultando em maior eficiência no controle de tributos.</li>
+                                    <li>Liderei iniciativas de melhoria contínua, utilizando Python para automação de processos e Power BI para criar dashboards que resultaram em maior produtividade e na identificação de oportunidades de redução de custos.</li>
+                                    <li>Automatizei a sincronização de dados entre SharePoint Lists e o Data Lake utilizando VBA no Access, garantindo a atualização em tempo real e a integridade dos dados para análise.</li>
+                                     <li>Otimizei o fluxo de atualização de dados ao desenvolver um RPA que automatiza a inserção de informações no sistema, garantindo maior agilidade e reduzindo custos operacionais.</li>
                                 </ul>
                             </div>
                             
                             <div>
                                 <div class="flex justify-between items-baseline">
-                                    <h4 class="text-lg font-semibold">Analista de Gestão de Estoque</h4>
+                                    <h4 class="text-lg font-semibold text-gray-900">Analista de Gestão de Estoque</h4>
                                     <p class="text-sm font-medium text-gray-500">2020 - 2022</p>
                                 </div>
                                 <p class="text-md font-medium text-gray-600">Blue Health</p>
                                 <ul class="mt-2 list-disc list-inside text-sm space-y-1">
-                                    <li>Desenvolvi KPIs (Curva ABC, CMV) que suportaram a otimização de compras e a redução de custos.</li>
-                                    <li>Automatizei a rotina de conciliação de inventário com <strong>VBA</strong> e <strong>SQL</strong>, minimizando erros.</li>
-                                    <li>Modelei bancos de dados em <strong>MS Access</strong> para análises de faturamento e impostos.</li>
+                                    <li>Realizei o controle de inventário para o SPED Fiscal e análises de Custo de Mercadoria Vendida (CMV) para otimizar a gestão de estoque.</li>
+                                    <li>Automatizei a rotina de conciliação de inventário com VBA e SQL e modelei bancos de dados em MS Access para agilizar análises fiscais.</li>
                                 </ul>
                             </div>
                             
                             <div>
                                 <div class="flex justify-between items-baseline">
-                                    <h4 class="text-lg font-semibold">Assistant Operations Office</h4>
+                                    <h4 class="text-lg font-semibold text-gray-900">Assistant Operations Office</h4>
                                     <p class="text-sm font-medium text-gray-500">2019</p>
                                 </div>
                                 <p class="text-md font-medium text-gray-600">KPMG Brasil</p>
@@ -239,5 +228,4 @@
     </script>
 </body>
 </html>
-
 
