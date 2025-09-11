@@ -24,6 +24,14 @@
         .print-container {
              background-color: white;
         }
+        #contact-form-container {
+            transition: all 0.5s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        #contact-form-container.open {
+            max-height: 500px; /* Adjust as needed */
+        }
         @media print {
             @page {
                 size: A4;
@@ -107,6 +115,10 @@
                             <h3 class="text-xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2">Contato</h3>
                             <div class="mt-4 space-y-3 text-sm">
                                 <div class="flex items-center justify-center md:justify-start gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-500"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                    <span>33 anos</span>
+                                </div>
+                                <div class="flex items-center justify-center md:justify-start gap-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-500"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                                     <span>marcelbozutti@gmail.com</span>
                                 </div>
@@ -176,12 +188,12 @@
                 <!-- Right Main Content -->
                 <main class="md:col-span-2 p-8">
                     <h1 class="text-4xl md:text-5xl font-bold text-gray-800">Marcel Bozutti</h1>
-                    <h2 class="mt-1 text-xl md:text-2xl font-semibold text-gray-500">BI & Analytics Specialist | Data-Driven Process Optimization</h2>
+                    <h2 class="mt-1 text-xl md:text-2xl font-semibold text-gray-500">Business Intelligence & Analyst | Data & Process Optimization</h2>
                     
                     <section class="mt-8">
                         <h3 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-200 pb-2">Resumo Profissional</h3>
                         <p class="mt-4 text-base">
-                            Olá, bem vindo! Sou Analista de Business Intelligence com MBA em BI & Analytics (ECA-USP) e background sólido em Administração e Supply Chain. Sou especializado em traduzir desafios de negócio em soluções de dados, aplicando storytelling para transformar informações complexas em insights claros e acionáveis. Atuo em todo o ciclo da informação: desde a estruturação de bancos de dados e o tratamento de dados brutos, até a automação de relatórios e a criação de dashboards. Tenho facilidade para aprender e desenvolver novas tecnologias, busco ter bom relacionamento entre as equipes de trabalho e acredito no poder dos dados, principalmente para tomadas de decisões difíceis e que venham a agregar nos negócios, e dessa forma, experiênciando com a ciência a excelencia da melhoria contínua.                        
+                            Analista de Business Intelligence com MBA em BI & Analytics (ECA-USP) e background sólido em Administração e Supply Chain. Sou especializado em traduzir desafios de negócio em soluções de dados, aplicando storytelling para transformar informações complexas em insights claros e acionáveis. Atuo em todo o ciclo da informação: desde a estruturação de bancos de dados e o tratamento de dados brutos, até a automação de relatórios e a criação de dashboards. Com facilidade para aprender novas tecnologias e foco no relacionamento interpessoal, utilizo o poder dos dados para suportar decisões estratégicas e impulsionar a melhoria contínua.
                         </p>
                     </section>
 
@@ -227,15 +239,55 @@
 
                         </div>
                     </section>
+                    
+                    <section class="mt-8 no-print">
+                        <div class="text-center">
+                            <button id="toggle-form-button" class="w-full md:w-auto bg-gray-200 text-gray-700 font-medium py-2 px-5 rounded-lg hover:bg-gray-300 transition-colors inline-flex items-center justify-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300"><path d="M19 14l-7 7-7-7"></path></svg>
+                                <span>Deixar um Feedback ou Contato</span>
+                            </button>
+                        </div>
+                        <div id="contact-form-container">
+                            <div class="mt-6 border-t-2 border-gray-200 pt-6">
+                                <form action="https://formspree.io/f/mdkljnrn" method="POST" class="space-y-4">
+                                    <div>
+                                        <label for="name" class="block text-sm font-medium text-gray-700">Nome</label>
+                                        <input type="text" name="name" id="name" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm">
+                                    </div>
+                                    <div>
+                                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                                        <input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm">
+                                    </div>
+                                    <div>
+                                        <label for="message" class="block text-sm font-medium text-gray-700">Mensagem</label>
+                                        <textarea name="message" id="message" rows="4" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm"></textarea>
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="w-full bg-gray-800 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors">Enviar Mensagem</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+
                 </main>
             </div>
         </div>
     </div>
     <script>
-        // No JavaScript is needed for the core functionality of this layout.
-        // The print functionality is handled by the browser and styled with CSS.
+        document.addEventListener('DOMContentLoaded', function() {
+            var toggleButton = document.getElementById('toggle-form-button');
+            var formContainer = document.getElementById('contact-form-container');
+            var buttonIcon = toggleButton.querySelector('svg');
+
+            if (toggleButton && formContainer) {
+                toggleButton.addEventListener('click', function() {
+                    formContainer.classList.toggle('open');
+                    buttonIcon.classList.toggle('rotate-180');
+                });
+            }
+        });
     </script>
 </body>
 </html>
-
 
